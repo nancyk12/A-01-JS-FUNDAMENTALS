@@ -159,6 +159,15 @@ console.log(favoriteFoodsCount);
 // of the people who have pizza as one of their favorite foods.
 // example: ['Peter', 'Mary']
 
+const favoriteFoodsCount = userData.map((user) => {
+  const { id, favorites } = user;
+  const favoriteFoodsCount = favorites.food.length;
+
+  return { id, favoriteFoods: favoriteFoodsCount };
+});
+
+console.log(favoriteFoodsCount);
+
 
 // 7. Show an an example of a switch statement being used
 
