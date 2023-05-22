@@ -144,6 +144,16 @@ const userData = [
 // Each object should have the id of the user and the amount of favorite foods they have.
 // example: [{id: '111', favoriteFoods: 2}]
 
+//Nancy's answer:
+const favoriteFoodsCount = userData.map((user) => {
+  const { id, favorites } = user;
+  const favoriteFoodsCount = favorites.food.length;
+
+  return { id, favoriteFoods: favoriteFoodsCount };
+});
+
+console.log(favoriteFoodsCount);
+
 
 // 6. Given the data above, use ".reduce" to make an array of all the names
 // of the people who have pizza as one of their favorite foods.
