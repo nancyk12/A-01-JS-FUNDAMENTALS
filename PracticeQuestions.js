@@ -87,6 +87,26 @@ const couldThrowError = () => {
   return 'success'
 }
 
+//Nancy's callback function: I got help form ChatGPT:
+
+const callbackFunction = (callback) => {
+  try {
+    const result = callback();
+    console.log(result);
+  } catch (error) {
+    console.log("Sorry, there was an error");
+  }
+};
+
+const couldThrowError = () => {
+  if (Math.ceil(Math.random() * 2) < 2) {
+    throw new Error("Error was thrown");
+  }
+  
+  return 'success';
+};
+
+callbackFunction(couldThrowError);
 
 ////////////////////////////////////////////////////////////
 //// Handling data:
