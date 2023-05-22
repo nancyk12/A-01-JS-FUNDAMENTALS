@@ -21,6 +21,19 @@ console.log(result.x);   // Output: 6
 
 
 // 2. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x", using arrow functions.
+const sumAndX = (num1, num2) => {
+  const sum = num1 + num2;
+  return {
+    sum,
+    x
+  };
+};
+
+const x = 6;
+const result = sumAndX(4, 5);
+console.log(result.sum); // Output: 9
+console.log(result.x);   // Output: 6
+
 
 // 3. Write a function that returns another function. (use arrow functions please)
 
