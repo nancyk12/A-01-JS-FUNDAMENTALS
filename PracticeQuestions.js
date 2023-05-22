@@ -7,60 +7,64 @@
 const x = 6
 
 // 1. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x" using without using arrow functions.
-function sumAndX(num1, num2) {
-  var sum = num1 + num2;
-  return {
-    sum: sum,
-    x: x
-  };
-}
 
-var result = sumAndX(4, 5);
-console.log(result.sum); // Output: 9
-console.log(result.x);   // Output: 6
+      function sumAndX(num1, num2) {
+        const sum = num1 + num2;
+        return {
+          sum: sum,
+          x: x
+        };
+      }
+
+      const result = sumAndX(4, 5);
+      console.log('!@-------question 1-------@!')
+      console.log(result.sum); // Output: 9
+      console.log(result.x);   // Output: 6
 
 
 // 2. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x", using arrow functions.
-const sumAndX = (num1, num2) => {
-  const sum = num1 + num2;
-  return {
-    sum,
-    x
-  };
-};
 
-const x = 6;
-const result = sumAndX(4, 5);
-console.log(result.sum); // Output: 9
-console.log(result.x);   // Output: 6
+         const sumAndXArrow = (num1, num2) => {
+           const sumArrow = num1 + num2;
+           return {
+             sumArrow,
+             x
+           };
+         }
+
+        // const x = 6;
+         const resultArrow = sumAndXArrow(4, 5);
+         console.log('!@-------question 2-------@!')
+         console.log(resultArrow.sumArrow); // Output: 9
+         console.log(resultArrow.x);   // Output: 6
 
 
 // 3. Write a function that returns another function. (use arrow functions please)
 
-const outerFunction = () => {
-  const innerFunction = () => {
-    console.log("Inner function is executed!");
-  };
+        const outerFunction = () => {
+          const innerFunction = () => {
+            console.log("Inner function is executed!");
+          };
 
-  return innerFunction;
-};
+          return innerFunction;
+        };
 
-const returnedFunction = outerFunction();
-returnedFunction(); // Output: "Inner function is executed!"
+        const returnedFunction = outerFunction();
+        returnedFunction(); // Output: "Inner function is executed!"
 
 
 // 4. Given the following code explain why the function that returns from getFunction still has access to variable "y" even when "y" is not a global variable.
 
 
-const getFunction = () => {
-  const y = 5;
+          const getFunction = () => {
+            const y = 5;
 
-  const insideFunc = (a) => y + a;
+            const insideFunc = (a) => y + a;
 
-  return insideFunc;
-};
-
-console.log(getFunction()(2))
+            return insideFunc;
+          };
+          console.log('!@-------question 4-------@!')
+          console.log(getFunction()(2))
 
 // I used ChatGPT to help me with this answer. I'm still reviewing and learning these concepts so I can explain them. 
 
@@ -87,26 +91,26 @@ const couldThrowError = () => {
   return 'success'
 }
 
-//Nancy's callback function: I got help form ChatGPT:
+      // //Nancy's callback function: I got help form ChatGPT:
 
-const callbackFunction = (callback) => {
-  try {
-    const result = callback();
-    console.log(result);
-  } catch (error) {
-    console.log("Sorry, there was an error");
-  }
-};
+      // const callbackFunction = (callback) => {
+      //   try {
+      //     const result = callback();
+      //     console.log(result);
+      //   } catch (error) {
+      //     console.log("Sorry, there was an error");
+      //   }
+      // };
 
-const couldThrowError = () => {
-  if (Math.ceil(Math.random() * 2) < 2) {
-    throw new Error("Error was thrown");
-  }
-  
-  return 'success';
-};
+      // const couldThrowError = () => {
+      //   if (Math.ceil(Math.random() * 2) < 2) {
+      //     throw new Error("Error was thrown");
+      //   }
+        
+      //   return 'success';
+      // };
 
-callbackFunction(couldThrowError);
+      // callbackFunction(couldThrowError);
 
 ////////////////////////////////////////////////////////////
 //// Handling data:
@@ -144,72 +148,74 @@ const userData = [
 // Each object should have the id of the user and the amount of favorite foods they have.
 // example: [{id: '111', favoriteFoods: 2}]
 
-//Nancy's answer:
-const favoriteFoodsCount = userData.map((user) => {
-  const { id, favorites } = user;
-  const favoriteFoodsCount = favorites.food.length;
+        //Nancy's answer:
+        const favoriteFoodsCount = userData.map((user) => {
+          const { id, favorites } = user;
+          const favoriteFoodsCount = favorites.food.length;
 
-  return { id, favoriteFoods: favoriteFoodsCount };
-});
-
-console.log(favoriteFoodsCount);
+          return { id, favoriteFoods: favoriteFoodsCount };
+        });
+        console.log('!@-------question 5-------@!')
+        console.log(favoriteFoodsCount);
 
 
 // 6. Given the data above, use ".reduce" to make an array of all the names
 // of the people who have pizza as one of their favorite foods.
 // example: ['Peter', 'Mary']
 
-const pizzaLovers = userData.reduce((accumulator, user) => {
-  const { name, favorites } = user;
-  const { food } = favorites;
+        const pizzaLovers = userData.reduce((accumulator, user) => {
+          const { name, favorites } = user;
+          const { food } = favorites;
 
-  if (food.includes('pizza')) {
-    accumulator.push(name);
-  }
+          if (food.includes('pizza')) {
+            accumulator.push(name);
+          }
 
-  return accumulator;
-}, []);
+          return accumulator;
+        }, []);
 
-console.log(pizzaLovers);
+        console.log('!@-------question 6-------@!')
+        console.log(pizzaLovers);
 
 
 // 7. Show an an example of a switch statement being used
 
-const getDayOfWeek = (dayNumber) => {
-  let day;
+        const getDayOfWeek = (dayNumber) => {
+          let day;
 
-  switch (dayNumber) {
-    case 0:
-      day = 'Sunday';
-      break;
-    case 1:
-      day = 'Monday';
-      break;
-    case 2:
-      day = 'Tuesday';
-      break;
-    case 3:
-      day = 'Wednesday';
-      break;
-    case 4:
-      day = 'Thursday';
-      break;
-    case 5:
-      day = 'Friday';
-      break;
-    case 6:
-      day = 'Saturday';
-      break;
-    default:
-      day = 'Invalid day';
-  }
+          switch (dayNumber) {
+            case 0:
+              day = 'Sunday';
+              break;
+            case 1:
+              day = 'Monday';
+              break;
+            case 2:
+              day = 'Tuesday';
+              break;
+            case 3:
+              day = 'Wednesday';
+              break;
+            case 4:
+              day = 'Thursday';
+              break;
+            case 5:
+              day = 'Friday';
+              break;
+            case 6:
+              day = 'Saturday';
+              break;
+            default:
+              day = 'Invalid day';
+          }
 
-  return day;
-};
+          return day;
+        };
 
-console.log(getDayOfWeek(3)); // Output: Wednesday
-console.log(getDayOfWeek(6)); // Output: Saturday
-console.log(getDayOfWeek(8)); // Output: Invalid day
+        console.log('!@-------question 7-------@!')
+        console.log(getDayOfWeek(3)); // Output: Wednesday
+        console.log(getDayOfWeek(6)); // Output: Saturday
+        console.log(getDayOfWeek(8)); // Output: Invalid day
 
 
 ////////////////////////////////////////////////////////////
@@ -237,16 +243,33 @@ const userPersonalData = {
 //  accomplishments: ['won award for being good gamer', 'won 1st win', 'got good score on the weekend'],
 // }
 
+        const gamer= {
+          ...userPersonalData,
+          ...userGameData
+        };
+        console.log('!@-------question 8-------@!')
+        console.log(gamer);
+
 
 
 
 
 // 9. Make a copy of your new user object but override the birthday to december 31st
+
+          const updatedUser = {
+            ...gamer,
+            birthday: 'December 31st'
+          };
+          console.log('!@-------question 9-------@!')
+          console.log(updatedUser);
  
 
 // 10. Use the spread operator to make a copy of the accomplishments array and store it in a new variable
 
-
+            const accomplishmentsCopy = [...gamer.accomplishments];
+            
+            console.log('!@-------question 10-------@!')
+            console.log(accomplishmentsCopy);
 
 
 //  11.Given the object bellow, use object destructuring to get the favorite food value (user.name.favoriteThings.food)
