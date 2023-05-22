@@ -7,6 +7,18 @@
 const x = 6
 
 // 1. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x" using without using arrow functions.
+function sumAndX(num1, num2) {
+  var sum = num1 + num2;
+  return {
+    sum: sum,
+    x: x
+  };
+}
+
+var result = sumAndX(4, 5);
+console.log(result.sum); // Output: 9
+console.log(result.x);   // Output: 6
+
 
 // 2. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x", using arrow functions.
 
