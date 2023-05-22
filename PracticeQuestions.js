@@ -37,6 +37,17 @@ console.log(result.x);   // Output: 6
 
 // 3. Write a function that returns another function. (use arrow functions please)
 
+const outerFunction = () => {
+  const innerFunction = () => {
+    console.log("Inner function is executed!");
+  };
+
+  return innerFunction;
+};
+
+const returnedFunction = outerFunction();
+returnedFunction(); // Output: "Inner function is executed!"
+
 
 // 4. Given the following code explain why the function that returns from getFunction still has access to variable "y" even when "y" is not a global variable.
 
