@@ -159,14 +159,18 @@ console.log(favoriteFoodsCount);
 // of the people who have pizza as one of their favorite foods.
 // example: ['Peter', 'Mary']
 
-const favoriteFoodsCount = userData.map((user) => {
-  const { id, favorites } = user;
-  const favoriteFoodsCount = favorites.food.length;
+const pizzaLovers = userData.reduce((accumulator, user) => {
+  const { name, favorites } = user;
+  const { food } = favorites;
 
-  return { id, favoriteFoods: favoriteFoodsCount };
-});
+  if (food.includes('pizza')) {
+    accumulator.push(name);
+  }
 
-console.log(favoriteFoodsCount);
+  return accumulator;
+}, []);
+
+console.log(pizzaLovers);
 
 
 // 7. Show an an example of a switch statement being used
