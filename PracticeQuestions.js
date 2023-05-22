@@ -62,6 +62,17 @@ const getFunction = () => {
 
 console.log(getFunction()(2))
 
+// I used ChatGPT to help me with this answer. I'm still reviewing and learning these concepts so I can explain them. 
+
+//This is the answer ChatGPT gave me:
+// The function returned from getFunction still has access to the variable y because of the concept of lexical scoping in JavaScript.
+// In JavaScript, functions are not only standalone entities but also carry with them the scope in which they were defined. This means that functions have access to variables defined in their outer (enclosing) scopes.
+//In the given code, the function insideFunc is defined inside getFunction. Therefore, it forms a closure, capturing the environment in which it was created, including the variable y. This environment, including the variable y, is preserved even after getFunction finishes executing.
+// When we call getFunction(), it returns the insideFunc. The returned function retains the reference to the y variable, allowing it to access and use the value of y even though it is not a global variable.
+// In the console.log(getFunction()(2)) statement, the returned function is invoked with an argument of 2. Inside the returned function, y (with a value of 5) is added to the argument 2, resulting in the output of 7 to the console.
+
+
+
 // 5. write a function that takes "couldThrowError()" as a callback argument.
 // within that function call "couldThrowError" and and log the result to the console.
 // Make sure to handle errors that could be thrown by "couldThrowError()"
