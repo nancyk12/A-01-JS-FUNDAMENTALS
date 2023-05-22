@@ -267,7 +267,7 @@ const userPersonalData = {
 // 10. Use the spread operator to make a copy of the accomplishments array and store it in a new variable
 
             const accomplishmentsCopy = [...gamer.accomplishments];
-            
+
             console.log('!@-------question 10-------@!')
             console.log(accomplishmentsCopy);
 
@@ -284,14 +284,30 @@ var user = {
   },
  };
 
+        // Nancy's answer to question 11:
+        const { favoriteThings: { food } } = user;
+        console.log('!@-------question 11-------@!')
+            console.log(food);
  
 // 12. Once you have grabbed the favorite foods. Destructure the food array to grab only the first 2 values. //
+
+        const { favoriteThings: { food: [firstFood, secondFood] } } = user;
+
+        console.log('!@-------question 12-------@!')
+          console.log(firstFood);
+          console.log(secondFood);
 
 
 // 13. use object destructuring and the rest operator to transform the following array into 3 variables: name, age, and food. 
 //    the food variable should have all the array items starting from the third one.
 const data = ['peter', '34', 'apple', 'oranges', 'pizza', 'tacos'];
 
+        const [name, age, ...food13] = data;
+
+        console.log('!@-------question 13-------@!')
+          console.log(name);
+          console.log(age);
+          console.log(food13);
 
 
 // 14. use object destructuring to grab the following from the userInfo object: 
@@ -311,6 +327,25 @@ const userInfo = {
     },
   },
 };
+
+            //Nancy's code for question 14:
+
+            const { name: userName, 
+              favorites: { 
+                needs: { 
+                  food: favoriteFood }, 
+                  wants: { 
+                    things: [favoriteThing, secondFavoriteThing] }, 
+                  }
+                } = userInfo;
+
+                console.log('!@-------question 14-------@!')
+                console.log(userName);
+                console.log(favoriteFood);
+                console.log(favoriteThing);
+                console.log(secondFavoriteThing);
+
+
 
 var fetchData = () => new Promise((resolve, reject) => {
   console.log('fetchingData from imaginary database')
@@ -355,8 +390,34 @@ var fetchData = () => new Promise((resolve, reject) => {
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 15. Call fetchData (which returns a promise) and use the .then()  method to log the value the promise resolves with to the javascript console.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+      // Nancy's code for question 15: It fetched data from {name: 'john', age:42}
 
+      console.log('!@-------question 15-------@!')
+
+        fetchData().then((data) => {
+            
+            console.log(data);
+          }).catch((error) => {
+            console.log('Sorry, there was an error:', error);
+          });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 16. Call fetchData (which returns a promise) and use the async/await method to log the value the promise resolves with to the javascript console.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Nancy's code for question 16: It fetched data from {name: 'john', age:42}
+
+        console.log('!@-------question 16-------@!')
+
+          async function fetchDataAsync() {
+            try {
+              const data = await fetchData();
+              
+              console.log(data);
+            } catch (error) {
+              console.log('Sorry, there was an error:', error);
+            }
+          }
+     
+          fetchDataAsync();
